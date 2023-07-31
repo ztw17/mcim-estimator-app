@@ -12,12 +12,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { EstimateComponent } from './estimate/estimate.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     EstimatorComponent,
+    EstimateComponent,
   ],
   imports: [
     BrowserModule,
