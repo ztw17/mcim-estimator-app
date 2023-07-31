@@ -1,0 +1,40 @@
+.logo-container {
+	justify-content: center;
+	display: flex;
+}
+
+.logo-wrapper {
+  height: 200px;
+	padding-top: 100px;
+}
+
+.logo {
+  height: 42%
+}
+
+.logo-text {
+	color: #13A8E0;
+	font-size: 32px;
+	font-weight: 100;
+}
+
+.start-button-container {
+	justify-content: center;
+	display: flex;
+}
+
+.start-button {    
+	border: 1px solid #255799;
+	border-radius: 40px;
+	padding: 20px;
+	background-color: #D3D3D3;
+	color: #255799;
+	font-weight: 100;
+	cursor: pointer;
+}
+
+.start-button:hover {
+	background-color: #63676B;
+	color: #FFFFFF;
+  transition: 0.3s;
+}
