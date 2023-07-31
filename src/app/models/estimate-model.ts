@@ -5,7 +5,7 @@ export interface EstimateModel {
 	priority: string;
 	workTask: string;
 	description: string;
-	quantity: string;
-	labor: string;
-	materials: string;
+	quantity: NumberConstructor;
+	labor: NumberConstructor;
+	materials: NumberConstructor;
 }

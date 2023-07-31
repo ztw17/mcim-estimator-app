@@ -1,5 +1,6 @@
 .form-wrapper {
   display: grid;
+	padding-top: 24px;
 }
 
 .next-button-wrapper {
@@ -15,16 +16,58 @@
 	color: #255799;
 	font-size: 20px;
 	font-weight: 100;
+	cursor: pointer;
+	transition: 0.3s;
 }
 
 .next-button:hover {
 	background-color: #D3D3D3;
+	transition: 0.3s;
+}
+
+.save-button {
+	border: 1px solid #255799;
+	border-radius: 40px;
+	padding: 6px 16px;
+	background-color: #13A8E0;
+	color: #FFFFFF;
+	font-size: 20px;
+	font-weight: 200;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.save-button:hover {
+	filter: brightness(80%);
+	transition: 0.3s;
+}
+
+.button-disabled {
+	cursor: not-allowed;
+	opacity: 0.5;
 }
 
 .right-space {
 	margin-right: 20px;
 }
 
+.cost-fields-wrapper {
+	display: flex;
+	justify-content: space-between;
+}
+
 :host ::ng-deep .mat-step-icon-selected { 
 	background-color: #13A8E0;
+}
+
+:host ::ng-deep .mat-step-icon-state-edit {
+	background-color: #255799;
+}
+
+:host ::ng-deep .mat-mdc-form-field-icon-prefix {
+	padding-left: 6px;
+}
+
+:host ::ng-deep .mat-mdc-form-field {
+	min-width: 300px;
 }

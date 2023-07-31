@@ -27,7 +27,13 @@
 				</mat-select>
 			</mat-form-field>
       <div class="next-button-wrapper">
-        <button (click)="next()" mat-button matStepperNext class="next-button">Next</button>
+				<button (click)="goHome()" mat-button class="next-button right-space">Back</button>
+        <button (click)="firstNext()" 
+					[disabled]="!firstValidate()" 
+					mat-button 
+					matStepperNext 
+					class="next-button"
+					[class.button-disabled]="!firstValidate()">Next</button>
       </div>
     </form>
   </mat-step>
@@ -36,41 +42,48 @@
       <ng-template matStepLabel>Fill out work task</ng-template>
 			<mat-form-field>
         <mat-label>Work Task Name</mat-label>
-        <input matInput placeholder="" formControlName="secondCtrl"
-               required>
+        <input matInput placeholder="Name of the work task" formControlName="secondCtrl" [(ngModel)]="model.workTask" required>
       </mat-form-field>
       <mat-form-field>
         <mat-label>Description</mat-label>
-        <input matInput placeholder="" formControlName="secondCtrl"
-               required>
+        <input matInput placeholder="Describe what works needs to be done (optional)" formControlName="secondCtrl" [(ngModel)]="model.description">
       </mat-form-field>
-			<mat-form-field>
-        <mat-label>Quantity</mat-label>
-        <input matInput placeholder="" formControlName="secondCtrl"
-               required>
-      </mat-form-field>
-			<mat-form-field>
-        <mat-label>Labor Cost</mat-label>
-        <input matInput placeholder="" formControlName="secondCtrl"
-               required>
-      </mat-form-field>
-			<mat-form-field>
-        <mat-label>Materials Cost</mat-label>
-        <input matInput placeholder="" formControlName="secondCtrl"
-               required>
-      </mat-form-field>
+			<div class="cost-fields-wrapper">
+				<mat-form-field>
+					<mat-label>Quantity</mat-label>
+					<input matInput placeholder="How many of the item?" formControlName="secondCtrl" [(ngModel)]="model.quantity" required>
+				</mat-form-field>
+				<mat-form-field>
+					<mat-label>Labor Cost</mat-label>
+					<input matInput placeholder="How much will labor cost?" formControlName="secondCtrl" [(ngModel)]="model.labor" required>
+					<span matPrefix>$&nbsp;</span>
+				</mat-form-field>
+				<mat-form-field>
+					<mat-label>Materials Cost</mat-label>
+					<input matInput placeholder="How much will materials cost?" formControlName="secondCtrl" [(ngModel)]="model.materials" required>
+					<span matPrefix>$&nbsp;</span>
+				</mat-form-field>
+			</div>
       <div class="next-button-wrapper">
         <button mat-button matStepperPrevious class="next-button right-space">Back</button>
-        <button mat-button matStepperNext class="next-button">Next</button>
+        <button (click)="secondNext()" 
+					[disabled]="!secondValidate()"
+					mat-button 
+					matStepperNext 
+					class="next-button"
+					[class.button-disabled]="!secondValidate()">Next</button>
       </div>
     </form>
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>Review</ng-template>
     <p>Review work estimate</p>
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
-    </div>
+		<div class="next-button-wrapper">
+			<button (click)="goHome()" mat-button class="next-button right-space">Back</button>
+			<button (click)="goHome()"
+				mat-button 
+				matStepperNext 
+				class="save-button">Save Estimate</button>
+		</div>
   </mat-step>
 </mat-stepper>

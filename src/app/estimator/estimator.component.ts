@@ -1,9 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { EstimateModel } from '../models/estimate-model';
 import { MatStepper } from '@angular/material/stepper';
 import { Properties } from '../constants/properties';
 import { Priorities } from '../constants/priorities';
+import * as _ from 'lodash';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-estimator',
@@ -16,13 +18,15 @@ export class EstimatorComponent implements OnInit {
   public firstFormGroup!: UntypedFormGroup;
   public secondFormGroup!: UntypedFormGroup;
   public model: EstimateModel = {} as EstimateModel;
+  public estimate: EstimateModel = {} as EstimateModel;
   public properties = Properties;
   public priorities = Priorities;
   public selectedProperty!: '';
   public selectedPriority!: '';
   
   constructor (
-    private _formBuilder: UntypedFormBuilder
+    private _formBuilder: UntypedFormBuilder,
+    private router: Router
   ) {}
 
   ngOnInit () {
@@ -34,30 +38,34 @@ export class EstimatorComponent implements OnInit {
     });
   }
 
-  ngOnChanges () {
-    // this.model = {
-    //   firstName: '',
-    //   lastName: '',
-    //   property: '',
-    //   priority: '',
-    //   workTask: '',
-    //   description: '',
-    //   quantity: '',
-    //   labor: '',
-    //   materials: ''
-    // }
-    console.log(this.model);
+  public firstNext () {
+    this.estimate.firstName = this.model.firstName;
+    this.estimate.lastName = this.model.lastName;
+    this.estimate.property = this.selectedProperty;
+    this.estimate.priority = this.selectedPriority;
   }
 
-  public next () {
-    this.updateModel();
+  public secondNext () {
+    this.estimate.workTask = this.model.workTask;
+    this.estimate.description = this.model.description;
+    this.estimate.quantity = this.model.quantity;
+    this.estimate.labor = this.model.labor;
+    this.estimate.materials = this.model.materials;
+    console.log(this.estimate)
   }
 
-  private updateModel () {
-    this.model.firstName = this.model.firstName;
-    this.model.lastName = this.model.lastName;
-    this.model.property = this.selectedProperty;
-    this.model.priority = this.selectedPriority;
-    console.log(this.model);
+  public firstValidate (): boolean {
+    const firstName = _.trim(this.model.firstName);
+    const lastName = _.trim(this.model.firstName);
+
+    return (!!firstName && !!lastName && !!this.selectedProperty && !!this.selectedPriority);
+  }
+
+  public secondValidate (): boolean {
+    return (!!this.model.workTask && !!this.model.quantity && !!this.model.labor && !!this.model.materials);
+  }
+
+  public goHome () {
+    this.router.navigateByUrl('/');
   }
 }
