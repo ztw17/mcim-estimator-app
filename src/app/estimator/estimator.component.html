@@ -1,1 +1,56 @@
-<p>estimator works!</p>
+<mat-stepper #stepper>
+  <mat-step [stepControl]="firstFormGroup" errorMessage="Name is required.">
+    <form [formGroup]="firstFormGroup" class="form-wrapper">
+      <ng-template matStepLabel>Fill out technician and property details</ng-template>
+      <mat-form-field>
+        <mat-label>Technician First Name</mat-label>
+        <input matInput placeholder="First name" formControlName="firstCtrl" required>
+      </mat-form-field>
+			<mat-form-field>
+        <mat-label>Technician Last Name</mat-label>
+        <input matInput placeholder="First name" formControlName="firstCtrl" required>
+      </mat-form-field>
+			<mat-form-field>
+				<mat-label>Property</mat-label>
+				<mat-select required>
+					<mat-option *ngFor="let property of properties" [value]="property.value">
+						{{property.viewValue}}
+					</mat-option>
+				</mat-select>
+			</mat-form-field>
+			<mat-form-field>
+				<mat-label>Priority</mat-label>
+				<mat-select required>
+					<mat-option *ngFor="let priority of priorities" [value]="priority.value">
+						{{priority.viewValue}}
+					</mat-option>
+				</mat-select>
+			</mat-form-field>
+      <div class="next-button-wrapper">
+        <button mat-button matStepperNext class="next-button">Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup" errorMessage="Address is required.">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Fill out work task</ng-template>
+      <mat-form-field>
+        <mat-label>Description</mat-label>
+        <input matInput placeholder="Ex. 1 Main St, New York, NY" formControlName="secondCtrl"
+               required>
+      </mat-form-field>
+      <div class="next-button-wrapper">
+        <button mat-button matStepperPrevious class="next-button right-space">Back</button>
+        <button mat-button matStepperNext class="next-button">Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Review</ng-template>
+    <p>Review work estimate</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-stepper>

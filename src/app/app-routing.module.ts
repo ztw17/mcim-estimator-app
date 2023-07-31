@@ -5,7 +5,7 @@ import { EstimatorComponent } from './estimator/estimator.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'estimate', component: EstimatorComponent }
+  { path: 'estimate', component: EstimatorComponent },
 ];
 
 @NgModule({

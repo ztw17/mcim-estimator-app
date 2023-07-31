@@ -8,9 +8,9 @@ import { Router } from '@angular/router';
 })
 
 export class HomeComponent {
-  constructor(private router: Router) {}
+  constructor (private router: Router) {}
 
-  public newEstimateButtonHandler() {
+  public newEstimateButtonHandler () {
     this.router.navigateByUrl('/estimate');
   }
 }
