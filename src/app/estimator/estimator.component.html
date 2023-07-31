@@ -1,18 +1,18 @@
 <mat-stepper #stepper>
-  <mat-step [stepControl]="firstFormGroup" errorMessage="Name is required.">
+  <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup" class="form-wrapper">
       <ng-template matStepLabel>Fill out technician and property details</ng-template>
       <mat-form-field>
         <mat-label>Technician First Name</mat-label>
-        <input matInput placeholder="First name" formControlName="firstCtrl" required>
+        <input matInput placeholder="First name" formControlName="firstCtrl" [(ngModel)]="model.firstName" required>
       </mat-form-field>
 			<mat-form-field>
         <mat-label>Technician Last Name</mat-label>
-        <input matInput placeholder="First name" formControlName="firstCtrl" required>
+        <input matInput placeholder="Last name" formControlName="firstCtrl" [(ngModel)]="model.lastName" required>
       </mat-form-field>
 			<mat-form-field>
 				<mat-label>Property</mat-label>
-				<mat-select required>
+				<mat-select [(ngModel)]="selectedProperty" [ngModelOptions]="{standalone: true}" required>
 					<mat-option *ngFor="let property of properties" [value]="property.value">
 						{{property.viewValue}}
 					</mat-option>
@@ -20,23 +20,43 @@
 			</mat-form-field>
 			<mat-form-field>
 				<mat-label>Priority</mat-label>
-				<mat-select required>
+				<mat-select [(ngModel)]="selectedPriority" [ngModelOptions]="{standalone: true}" required>
 					<mat-option *ngFor="let priority of priorities" [value]="priority.value">
 						{{priority.viewValue}}
 					</mat-option>
 				</mat-select>
 			</mat-form-field>
       <div class="next-button-wrapper">
-        <button mat-button matStepperNext class="next-button">Next</button>
+        <button (click)="next()" mat-button matStepperNext class="next-button">Next</button>
       </div>
     </form>
   </mat-step>
   <mat-step [stepControl]="secondFormGroup" errorMessage="Address is required.">
-    <form [formGroup]="secondFormGroup">
+    <form [formGroup]="secondFormGroup" class="form-wrapper">
       <ng-template matStepLabel>Fill out work task</ng-template>
+			<mat-form-field>
+        <mat-label>Work Task Name</mat-label>
+        <input matInput placeholder="" formControlName="secondCtrl"
+               required>
+      </mat-form-field>
       <mat-form-field>
         <mat-label>Description</mat-label>
-        <input matInput placeholder="Ex. 1 Main St, New York, NY" formControlName="secondCtrl"
+        <input matInput placeholder="" formControlName="secondCtrl"
+               required>
+      </mat-form-field>
+			<mat-form-field>
+        <mat-label>Quantity</mat-label>
+        <input matInput placeholder="" formControlName="secondCtrl"
+               required>
+      </mat-form-field>
+			<mat-form-field>
+        <mat-label>Labor Cost</mat-label>
+        <input matInput placeholder="" formControlName="secondCtrl"
+               required>
+      </mat-form-field>
+			<mat-form-field>
+        <mat-label>Materials Cost</mat-label>
+        <input matInput placeholder="" formControlName="secondCtrl"
                required>
       </mat-form-field>
       <div class="next-button-wrapper">
