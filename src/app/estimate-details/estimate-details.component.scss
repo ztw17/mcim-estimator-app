@@ -1,0 +1,31 @@
+.form-wrapper {
+  display: grid;
+	padding-top: 24px;
+}
+
+.next-button-wrapper {
+	display: flex;
+	justify-content: center;
+}
+
+.next-button {
+	border: 1px solid #255799;
+	border-radius: 40px;
+	padding: 6px 16px;
+	background-color: #F5F5F5;
+	color: #255799;
+	font-size: 20px;
+	font-weight: 100;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.next-button:hover {
+	background-color: #D3D3D3;
+	transition: 0.3s;
+}
+
+.cost-fields-wrapper {
+	display: flex;
+	justify-content: space-between;
+}

@@ -37,47 +37,33 @@
       </div>
     </form>
   </mat-step>
-  <mat-step [stepControl]="secondFormGroup" errorMessage="Address is required.">
+  <mat-step [stepControl]="secondFormGroup">
     <form [formGroup]="secondFormGroup" class="form-wrapper">
       <ng-template matStepLabel>Fill out work task</ng-template>
-			<mat-form-field>
-        <mat-label>Work Task Name</mat-label>
-        <input matInput placeholder="Name of the work task" formControlName="secondCtrl" [(ngModel)]="model.workTask" required>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Description</mat-label>
-        <input matInput placeholder="Describe what works needs to be done (optional)" formControlName="secondCtrl" [(ngModel)]="model.description">
-      </mat-form-field>
-			<div class="cost-fields-wrapper">
-				<mat-form-field>
-					<mat-label>Quantity</mat-label>
-					<input matInput placeholder="How many of the item?" formControlName="secondCtrl" [(ngModel)]="model.quantity" required>
-				</mat-form-field>
-				<mat-form-field>
-					<mat-label>Labor Cost</mat-label>
-					<input matInput placeholder="How much will labor cost?" formControlName="secondCtrl" [(ngModel)]="model.labor" required>
-					<span matPrefix>$&nbsp;</span>
-				</mat-form-field>
-				<mat-form-field>
-					<mat-label>Materials Cost</mat-label>
-					<input matInput placeholder="How much will materials cost?" formControlName="secondCtrl" [(ngModel)]="model.materials" required>
-					<span matPrefix>$&nbsp;</span>
-				</mat-form-field>
-			</div>
+			<app-container-component (outputEstimateDetailsModel)="addWorkTask($event)"></app-container-component>
       <div class="next-button-wrapper">
         <button mat-button matStepperPrevious class="next-button right-space">Back</button>
         <button (click)="secondNext()" 
-					[disabled]="!secondValidate()"
 					mat-button 
 					matStepperNext 
-					class="next-button"
-					[class.button-disabled]="!secondValidate()">Next</button>
+					class="next-button">Next</button>
       </div>
     </form>
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>Review</ng-template>
     <p>Review work estimate</p>
+		<div>
+			<!-- <div>Technician: {{estimate.firstName}} {{estimate.lastName}}</div>
+			<div>Property: {{estimate.property}}</div>
+			<div>Priority: {{estimate.priority}}</div>
+			<div>Task Name: {{estimate.workTask}}</div>
+			<div *ngIf="estimate.description">Description: {{estimate.description}}</div>
+			<div>Quantity: {{estimate.quantity}}</div>
+			<div>Labor Cost: {{estimate.labor}}</div>
+			<div>Material Cost: {{estimate.materials}}</div>
+			<div>Total Cost: {{totalCost}}</div> -->
+		</div>
 		<div class="next-button-wrapper">
 			<button (click)="goHome()" mat-button class="next-button right-space">Back</button>
 			<button (click)="goHome()"

@@ -13,6 +13,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { EstimateComponent } from './estimate/estimate.component';
+import { EstimateDetailsComponent } from './estimate-details/estimate-details.component';
+import { ContainerComponent } from './container/estimate-details-container.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { EstimateComponent } from './estimate/estimate.component';
     HomeComponent,
     EstimatorComponent,
     EstimateComponent,
+    EstimateDetailsComponent,
+    ContainerComponent
   ],
   imports: [
     BrowserModule,
