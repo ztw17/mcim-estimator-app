@@ -74,6 +74,8 @@ export class EstimatorComponent implements OnInit {
         detailsTotal += (Number(details.quantity) * Number(details.materials)) + Number(details.labor);
       }
     })
+
+    this.totalCost = detailsTotal;
   }
 
   public addWorkTask(estimateDetails: EstimateDetailsModel): void {

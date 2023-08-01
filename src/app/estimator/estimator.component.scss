@@ -51,6 +51,23 @@
 	margin-right: 20px;
 }
 
+.estimate-info {
+	font-size: 20px;
+}
+
+.total-cost {
+	font-size: 28px;
+	font-weight: 500;
+}
+
+.card {
+	border: 1px solid gray;
+	border-radius: 40px;
+	width: 30%;
+	margin: 12px 0;
+	padding: 14px;
+}
+
 :host ::ng-deep .mat-step-icon-selected { 
 	background-color: #13A8E0;
 }
