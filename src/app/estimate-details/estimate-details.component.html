@@ -4,22 +4,22 @@
 		<input matInput placeholder="Name of the work task" [(ngModel)]="model.workTask" required>
 	</mat-form-field>
 	<mat-form-field>
-		<mat-label>Description</mat-label>
+		<mat-label>Description (optional)</mat-label>
 		<input matInput placeholder="Describe what works needs to be done (optional)" [(ngModel)]="model.description">
 	</mat-form-field>
 	<div class="cost-fields-wrapper">
-		<mat-form-field>
+		<mat-form-field matTooltip="Quantity must be a number">
 			<mat-label>Quantity</mat-label>
-			<input matInput placeholder="How many of the item?" [(ngModel)]="model.quantity" required>
+			<input matInput type="number" placeholder="How many of the item?" [(ngModel)]="model.quantity" required>
 		</mat-form-field>
-		<mat-form-field>
+		<mat-form-field matTooltip="Labor cost must be a number">
 			<mat-label>Labor Cost</mat-label>
-			<input matInput placeholder="How much will labor cost?" [(ngModel)]="model.labor" required>
+			<input matInput type="number" placeholder="How much will labor cost?" [(ngModel)]="model.labor" required>
 			<span matPrefix>$&nbsp;</span>
 		</mat-form-field>
-		<mat-form-field>
+		<mat-form-field matTooltip="Materials cost must be a number">
 			<mat-label>Materials Cost</mat-label>
-			<input matInput placeholder="How much will materials cost?" [(ngModel)]="model.materials" required>
+			<input matInput type="number" placeholder="How much will materials cost?" [(ngModel)]="model.materials" required>
 			<span matPrefix>$&nbsp;</span>
 		</mat-form-field>
 	</div>

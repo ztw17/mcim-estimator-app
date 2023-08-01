@@ -51,6 +51,11 @@
 	margin-right: 20px;
 }
 
+.name-container {
+	display: flex;
+	justify-content: space-between;
+}
+
 .estimate-info {
 	font-size: 20px;
 }
@@ -66,6 +71,10 @@
 	width: 30%;
 	margin: 12px 0;
 	padding: 14px;
+}
+
+.name-fields {
+	min-width: 46% !important;
 }
 
 :host ::ng-deep .mat-step-icon-selected { 

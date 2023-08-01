@@ -2,14 +2,16 @@
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup" class="form-wrapper">
       <ng-template matStepLabel>Fill out technician and property details</ng-template>
-      <mat-form-field>
-        <mat-label>Technician First Name</mat-label>
-        <input matInput placeholder="First name" formControlName="firstCtrl" [(ngModel)]="model.firstName" required>
-      </mat-form-field>
-			<mat-form-field>
-        <mat-label>Technician Last Name</mat-label>
-        <input matInput placeholder="Last name" formControlName="firstCtrl" [(ngModel)]="model.lastName" required>
-      </mat-form-field>
+			<div class="name-container">
+				<mat-form-field class="name-fields">
+					<mat-label>Technician First Name</mat-label>
+					<input matInput placeholder="First name" formControlName="firstCtrl" [(ngModel)]="model.firstName" required>
+				</mat-form-field>
+				<mat-form-field class="name-fields">
+					<mat-label>Technician Last Name</mat-label>
+					<input matInput placeholder="Last name" formControlName="firstCtrl" [(ngModel)]="model.lastName" required>
+				</mat-form-field>
+			</div>
 			<mat-form-field>
 				<mat-label>Property</mat-label>
 				<mat-select [(ngModel)]="selectedProperty" [ngModelOptions]="{standalone: true}" required>
@@ -40,7 +42,7 @@
   <mat-step [stepControl]="secondFormGroup">
     <form [formGroup]="secondFormGroup" class="form-wrapper">
       <ng-template matStepLabel>Fill out work task</ng-template>
-			<app-container-component (outputEstimateDetailsModel)="addWorkTask($event)"></app-container-component>
+			<estimate-details-container-component (outputEstimateDetailsModel)="addWorkTask($event)"></estimate-details-container-component>
       <div class="next-button-wrapper">
         <button mat-button matStepperPrevious class="next-button right-space">Back</button>
         <button (click)="secondNext()" 
@@ -52,7 +54,7 @@
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>Review</ng-template>
-    <p>Review work estimate</p>
+    <p>Review work estimate:</p>
 		<div class="estimate-info card">
 			<div>Technician: {{estimate.firstName}} {{estimate.lastName}}</div>
 			<div>Property: {{estimate.property}}</div>
@@ -61,10 +63,10 @@
 		<div>
 			<div *ngFor="let details of estimateDetails" class="card">
 				<div>Task Name: {{details.workTask}}</div>
-				<div *ngIf="details.description">Description: {{details.description}}</div>
+				<div *ngIf="details.description">Description: {{details?.description}}</div>
 				<div>Quantity: {{details.quantity}}</div>
 				<div>Labor Cost: ${{details.labor}}</div>
-				<div>Material Cost: ${{details.materials}}</div>
+				<div>Materials Cost: ${{details.materials}}</div>
 			</div>
 		</div>
 		<div class="total-cost">Total Cost: ${{totalCost}}</div>

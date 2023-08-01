@@ -3,7 +3,7 @@ import { EstimateDetailsComponent } from '../estimate-details/estimate-details.c
 import { EstimateDetailsModel } from '../models/estimate-details.model';
 
 @Component({
-  selector: 'app-container-component',
+  selector: 'estimate-details-container-component',
   template: `
     <div #dynamicComponentContainer></div>
     <div class="button-wrapper">
@@ -12,7 +12,7 @@ import { EstimateDetailsModel } from '../models/estimate-details.model';
   `,
   styleUrls: ['./estimate-details-container.component.scss']
 })
-export class ContainerComponent {
+export class EstimateDetailsContainerComponent {
   @Output() outputEstimateDetailsModel = new EventEmitter<EstimateDetailsModel>();
   
   @ViewChild('dynamicComponentContainer', { read: ViewContainerRef })
@@ -20,7 +20,7 @@ export class ContainerComponent {
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver) {}
 
-  createDynamicComponent() {
+  createDynamicComponent(): void {
     // Create a component factory for EstimateDetailsComponent
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(EstimateDetailsComponent);
 

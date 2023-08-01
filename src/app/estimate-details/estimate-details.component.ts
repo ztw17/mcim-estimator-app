@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { EstimateDetailsModel } from '../models/estimate-details.model';
 
 @Component({
@@ -9,15 +9,9 @@ import { EstimateDetailsModel } from '../models/estimate-details.model';
 export class EstimateDetailsComponent {
   @Output() outputEstimateDetailsModel = new EventEmitter<EstimateDetailsModel>();
 
-  public model: EstimateDetailsModel = {
-    workTask: undefined,
-    description: undefined,
-    quantity: undefined,
-    labor: undefined,
-    materials: undefined 
-  };
+  public model: EstimateDetailsModel = {} as EstimateDetailsModel;
    
-  public saveWorkTask() {
+  public saveWorkTask(): void {
     this.outputEstimateDetailsModel.emit(this.model)
   }
 }

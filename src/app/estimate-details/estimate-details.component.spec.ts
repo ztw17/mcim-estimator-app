@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EstimateDetailsComponent } from './estimate-details.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
 
 describe('EstimateDetailsComponent', () => {
   let component: EstimateDetailsComponent;
@@ -8,6 +10,10 @@ describe('EstimateDetailsComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports: [
+        MatFormFieldModule,
+        FormsModule
+      ],
       declarations: [EstimateDetailsComponent]
     });
     fixture = TestBed.createComponent(EstimateDetailsComponent);
