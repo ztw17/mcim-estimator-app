@@ -1,26 +1,27 @@
-# EstimatorApp
+# MCIM Estimator App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.2.
+This project was created as part of the interview process for MCIM by Fulcrum Collaborations.
 
-## Development server
+## Prerequisites
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Before running the application, make sure you have the following prerequisites installed on your system:
+- Node.js (LTS version or higher)
+- npm (Node Package Manager)
+- Angular CLI (Command Line Interface)
 
-## Code scaffolding
+`npm install -g @angular/cli`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Installation
+
+1. Clone the repository or download the source code as a ZIP file.
+2. Open a terminal or command prompt and navigate to the project directory.
+3. Run the following command to install the project dependencies:
+
+`npm install` 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Run `ng serve` to build the project.
 
 ## Further help
 
